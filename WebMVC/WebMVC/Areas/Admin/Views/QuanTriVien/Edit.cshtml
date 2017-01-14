@@ -20,6 +20,7 @@
                     <div class="col-lg-6">
                         @using (Html.BeginForm("Edit", "QuanTriVien", FormMethod.Post))
                         {
+                            @Html.HiddenFor(model => model.MaQuanTriVien)
                             @Html.AntiForgeryToken()
                             <hr />
                             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -61,14 +62,17 @@
                                 <div class="col-md-4">
                                     @Html.DropDownListFor(model => model.MaQuyenQuanTri, (SelectList)ViewBag.lstQuyenQuanTri, "Lựa Chọn", new { @class = "form-control", @id = "lstActivedll_dll" })
                                     @Html.ValidationMessageFor(model => model.MaQuyenQuanTri, "", new { @class = "text-danger" })
+
+                                    @Html.DropDownListFor(model => model.MaQuyenQuanTri, (SelectList)ViewBag.lstQuyenQuanTri, string.Empty, new { @class = "form-control", @style = "width:300px", @id = "MaQuyenQuanTri" })
+                                    @Html.ValidationMessageFor(model => model.MaQuyenQuanTri)
                                 </div>
                             </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-offset-2 col-md-10">
-                                        <input type="submit" value="Tạo mới" class="btn btn-default" />
-                                    </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Cập nhật" class="btn btn-default" />
                                 </div>
+                            </div>
                         }
                     </div>
                 </div>

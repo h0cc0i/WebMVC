@@ -18,6 +18,7 @@ namespace WebMVC.DataAccessLayer
         public WebMVC_ModelDbContext()
             : base("name=Database_EducationEntities")
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -5,8 +5,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using WebMVC.DataAccessLayer;
 using WebMVC.ENTITIES.CrudModel;
+
 
 namespace WebMVC.ENTITIES.ViewModel
 {
@@ -29,5 +31,7 @@ namespace WebMVC.ENTITIES.ViewModel
         public virtual CrudModelDMQuyenQuanTri DMQuyenQuanTri { get; set; }
         public List<DMQuyenQuanTri> lstActive { get; set; }
         public IPagedList<QuanTriVien> SearchResults { get; set; }
+
+     
     }
 }

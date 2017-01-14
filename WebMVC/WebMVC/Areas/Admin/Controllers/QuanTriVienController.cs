@@ -35,7 +35,7 @@ namespace WebMVC.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            initialCategoryEditAction();
+            initialCategoryCreateAction();
             return View(new CrudModelQuanTriVien());
         }
 
@@ -63,30 +63,41 @@ namespace WebMVC.Areas.Admin.Controllers
 
         #region Edit
         [HttpGet]
-        public ActionResult Edit(long id)
+        public ActionResult Edit(long MaQuanTriVien)
         {
             QuanTriVien model = new QuanTriVien();
-            model = _db.GetOne<QuanTriVien>(o=>o.MaQuanTriVien == id);
+            model = _db.GetOne<QuanTriVien>(o=>o.MaQuanTriVien == MaQuanTriVien);
             CrudModelQuanTriVien _model = new CrudModelQuanTriVien();
             WebMVC.COMMON.Helpers.CopyObject<CrudModelQuanTriVien>(model, ref _model);
             initialCategoryEditAction(_model);
+
             return View(_model);
         }
 
         [HttpPost]
         public ActionResult Edit(CrudModelQuanTriVien model)
         {
-            return View();
+            QuanTriVien _model = new QuanTriVien();
+            _model = _db.GetOne<QuanTriVien>(o => o.MaQuanTriVien == model.MaQuanTriVien);
+            COMMON.Helpers.CopyObject<QuanTriVien>(model, ref _model);
+            _db.Update<QuanTriVien>(_model);
+            return RedirectToAction("Index","QuanTriVien");
         }
         #endregion
 
+
+        #region Load DataSource for DropDownList
         public void initialCategoryEditAction(CrudModelQuanTriVien view)
         {
-            ViewBag.lstQuyenQuanTri = new SelectList(_db.Filter<DMQuyenQuanTri>(x=>x.MaQuyenQuanTri == view.MaQuyenQuanTri), "MaQuyenQuanTri", "TenQuyenQuanTri");
+            ViewBag.lstQuyenQuanTri = new SelectList(_db.Filter<DMQuyenQuanTri>(o=>o.MaQuyenQuanTri == view.MaQuyenQuanTri), "MaQuyenQuanTri", "TenQuyenQuanTri");
+            //ViewBag.lstQuyenQuanTri = new SelectList(_db.Filter<DMQuyenQuanTri>(x=>x.MaQuyenQuanTri == view.MaQuyenQuanTri), "MaQuyenQuanTri", "TenQuyenQuanTri");
         }
-        public void initialCategoryEditAction()
+
+        public void initialCategoryCreateAction()
         {
             ViewBag.lstQuyenQuanTri = new SelectList(_db.GetAll<DMQuyenQuanTri>(), "MaQuyenQuanTri", "TenQuyenQuanTri");
         }
+        #endregion
+
     }
 }
