@@ -31,8 +31,6 @@ namespace WebMVC.DataAccessLayer
 
         
         public Nullable<int> MaQuyenQuanTri { get; set; }
-
-        [Display(Name = "Tên quyền quản trị")]
         public virtual DMQuyenQuanTri DMQuyenQuanTri { get; set; }
     }
 }

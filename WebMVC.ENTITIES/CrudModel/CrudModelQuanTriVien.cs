@@ -24,7 +24,7 @@ namespace WebMVC.ENTITIES.CrudModel
 
         public Nullable<int> MaQuyenQuanTri { get; set; }
 
-        [Display(Name = "Tên quyền quản trị")]
-        public virtual CrudModelDMQuyenQuanTri DMQuyenQuanTri { get; set; }
+        //[Display(Name = "Tên quyền quản trị")]
+        //public virtual CrudModelDMQuyenQuanTri DMQuyenQuanTri { get; set; }
     }
 }

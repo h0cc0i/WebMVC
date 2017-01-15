@@ -12,24 +12,25 @@ using PagedList;
 
 namespace WebMVC.Areas.Admin.Controllers
 {
-    public class QuanTriVienController : Controller
+    public class QuanTriVienController : BaseController
     {
         DbContextHelper<WebMVC_ModelDbContext> _db = Singleton<DbContextHelper<WebMVC_ModelDbContext>>.Inst;
 
         // GET: Admin/QuanTriVien
         [HttpGet]
-        public ActionResult Index(ViewModelQTV SearchModel, int? currentPage)
+        public ActionResult Index(ViewModelQTV SearchString, int? currentPage)
 
-        {
-            var entities = _db.GetAll<QuanTriVien>();
+        { 
+            var entities = _db.Filter<QuanTriVien>(o=>(SearchString.TenDangNhap == null || o.TenDangNhap.StartsWith(SearchString.TenDangNhap)));
             var model = new List<QuanTriVien>();
             foreach (var currentEntity in entities)
             {
                 model.Add(Mapper.Map<QuanTriVien>(currentEntity));
             }
-            var pageIndex = SearchModel.Page ?? 1;
-            SearchModel.SearchResults = model.ToPagedList(pageIndex, CommonConstans.PageSize);
-            return View(SearchModel);
+            var pageIndex = SearchString.Page ?? 1;
+            SearchString.SearchResults = model.ToPagedList(pageIndex, CommonConstans.PageSize);
+            SearchString.lstDMQuanTriVien = _db.GetAll<DMQuyenQuanTri>();
+            return View(SearchString);
         }
 
         #region Create
@@ -97,7 +98,8 @@ namespace WebMVC.Areas.Admin.Controllers
 
         public void initialCategoryEditAction(CrudModelQuanTriVien view)
         {
-            ViewBag.lstQuyenQuanTri = new SelectList(_db.Filter<DMQuyenQuanTri>(x => x.MaQuyenQuanTri == view.MaQuyenQuanTri), "MaQuyenQuanTri", "TenQuyenQuanTri");
+            //ViewBag.lstQuyenQuanTri = new SelectList(_db.Filter<DMQuyenQuanTri>(x => x.MaQuyenQuanTri == view.MaQuyenQuanTri), "MaQuyenQuanTri", "TenQuyenQuanTri");
+            ViewBag.lstQuyenQuanTri = new SelectList(_db.GetAll<DMQuyenQuanTri>(), "MaQuyenQuanTri", "TenQuyenQuanTri",view.MaQuyenQuanTri);
         }
         public void initialCategoryEditAction()
         {

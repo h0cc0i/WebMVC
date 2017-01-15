@@ -23,7 +23,7 @@ namespace WebMVC.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.MatKhau = COMMON.CommonEncryptor.MD5Hash(model.MatKhau);
+                //model.MatKhau = COMMON.CommonEncryptor.MD5Hash(model.MatKhau);
                 var result = _db.EntityExists<QuanTriVien>(x => x.TenDangNhap == model.TenDangNhap && x.MatKhau == model.MatKhau);
 
                 if (result)

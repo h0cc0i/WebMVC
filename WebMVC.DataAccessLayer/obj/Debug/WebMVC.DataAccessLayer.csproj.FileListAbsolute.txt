@@ -7,3 +7,4 @@ C:\Users\HonC\documents\visual studio 2015\Projects\WebMVC\WebMVC.DataAccessLaye
 C:\Users\HonC\documents\visual studio 2015\Projects\WebMVC\WebMVC.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\HonC\documents\visual studio 2015\Projects\WebMVC\WebMVC.DataAccessLayer\obj\Debug\WebMVC.DataAccessLayer.dll
 C:\Users\HonC\documents\visual studio 2015\Projects\WebMVC\WebMVC.DataAccessLayer\obj\Debug\WebMVC.DataAccessLayer.pdb
+C:\Users\HonC\documents\visual studio 2015\Projects\WebMVC\WebMVC.DataAccessLayer\obj\Debug\WebMVC.DataAccessLayer.csprojResolveAssemblyReference.cache

@@ -27,7 +27,7 @@ namespace WebMVC.ENTITIES.ViewModel
         public Nullable<int> MaQuyenQuanTri { get; set; }
 
         public virtual CrudModelDMQuyenQuanTri DMQuyenQuanTri { get; set; }
-        public List<DMQuyenQuanTri> lstActive { get; set; }
+        public List<DMQuyenQuanTri> lstDMQuanTriVien { get; set; }
         public IPagedList<QuanTriVien> SearchResults { get; set; }
     }
 }
