@@ -59,10 +59,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrudModel\CrudModelBaiViet.cs" />
+    <Compile Include="CrudModel\CrudModelDMCapHocVien.cs" />
+    <Compile Include="CrudModel\CrudModelDMChuDe.cs" />
+    <Compile Include="CrudModel\CrudModelDMChuDeBaiViet.cs" />
+    <Compile Include="CrudModel\CrudModelDMHienThi.cs" />
+    <Compile Include="CrudModel\CrudModelDMLoaiKhoaHoc.cs" />
+    <Compile Include="CrudModel\CrudModelDMNgonNguLapTrinh.cs" />
     <Compile Include="CrudModel\CrudModelDMQuyenQuanTri.cs" />
+    <Compile Include="CrudModel\CrudModelGiangVien.cs" />
+    <Compile Include="CrudModel\CrudModelDMGioiTinh.cs" />
+    <Compile Include="CrudModel\CrudModelHocVien.cs" />
+    <Compile Include="CrudModel\CrudModelKhoaHoc.cs" />
+    <Compile Include="CrudModel\CrudModelKhoaHoc_GiangVien.cs" />
     <Compile Include="CrudModel\CrudModelLogin.cs" />
     <Compile Include="CrudModel\CrudModelQuanTriVien.cs" />
+    <Compile Include="CrudModel\CrudModelSlideShow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ViewModelGiangVien.cs" />
     <Compile Include="ViewModel\ViewModelQTV.cs" />
   </ItemGroup>
   <ItemGroup>

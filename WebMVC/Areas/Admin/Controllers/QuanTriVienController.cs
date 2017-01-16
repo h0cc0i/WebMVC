@@ -29,7 +29,7 @@ namespace WebMVC.Areas.Admin.Controllers
             }
             var pageIndex = SearchString.Page ?? 1;
             SearchString.SearchResults = model.ToPagedList(pageIndex, CommonConstans.PageSize);
-            SearchString.lstDMQuanTriVien = _db.GetAll<DMQuyenQuanTri>();
+            SearchString.lstDMQuyenQuanTri = _db.GetAll<DMQuyenQuanTri>();
             return View(SearchString);
         }
 
